@@ -45,4 +45,6 @@ vim.cmd.colorscheme("gand")
 
 ## 🍭 Extras 
 
-- [Ghostty theme](extras/ghostty/Gand)
+- [Ghostty theme](extras/ghostty/gand)
+
+- [Hunk theme](extras/hunk/gand.toml)

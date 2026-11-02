@@ -15,17 +15,17 @@ local lines = {
   "selection-background = " .. c.select,
   "selection-foreground = " .. c.fg,
   "",
-  "# ANSI colors: matches Gand's Neovim terminal palette.",
+  "# ANSI blue and bright blue use Runestone, including default macOS ls directories.",
 }
 
 local terminal = {
-  c.bg, c.red, c.green, c.gold, c.blue, c.purple, c.rune, c.fg,
-  c.muted, c.red, c.green, c.gold, c.blue, c.purple, c.rune, c.bright,
+  c.bg, c.red, c.green, c.gold, c.rune, c.purple, c.rune, c.fg,
+  c.muted, c.red, c.green, c.gold, c.rune, c.purple, c.rune, c.bright,
 }
 for i, color in ipairs(terminal) do
   lines[#lines + 1] = ("palette = %d=%s"):format(i - 1, color)
 end
 
-local output = root .. "/extras/ghostty/Gand"
+local output = root .. "/extras/ghostty/gand"
 assert(vim.fn.writefile(lines, output) == 0, "Failed to write " .. output)
 print("Generated " .. output)

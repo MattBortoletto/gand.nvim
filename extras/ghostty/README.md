@@ -7,5 +7,3 @@ Example:
 ```ini
 theme = "gand"
 ```
-
-```

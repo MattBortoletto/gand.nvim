@@ -9,12 +9,12 @@ cursor-text = #191C20
 selection-background = #343D42
 selection-foreground = #DAD3C2
 
-# ANSI colors: matches Gand's Neovim terminal palette.
+# ANSI blue and bright blue use Runestone, including default macOS ls directories.
 palette = 0=#191C20
 palette = 1=#D47E78
 palette = 2=#A1BD88
 palette = 3=#E0B567
-palette = 4=#91ADD0
+palette = 4=#83C0B6
 palette = 5=#B29ACB
 palette = 6=#83C0B6
 palette = 7=#DAD3C2
@@ -22,7 +22,7 @@ palette = 8=#92928C
 palette = 9=#D47E78
 palette = 10=#A1BD88
 palette = 11=#E0B567
-palette = 12=#91ADD0
+palette = 12=#83C0B6
 palette = 13=#B29ACB
 palette = 14=#83C0B6
 palette = 15=#F2EADB

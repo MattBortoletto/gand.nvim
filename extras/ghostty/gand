@@ -1,0 +1,28 @@
+# Gand — a dwarven-inspired dark theme for Ghostty
+# Generated from lua/gand/palette.lua; do not edit by hand.
+# Regenerate: nvim --headless -u NONE -i NONE -l scripts/generate-ghostty.lua
+
+background = #191C20
+foreground = #DAD3C2
+cursor-color = #E0B567
+cursor-text = #191C20
+selection-background = #343D42
+selection-foreground = #DAD3C2
+
+# ANSI colors: matches Gand's Neovim terminal palette.
+palette = 0=#191C20
+palette = 1=#D47E78
+palette = 2=#A1BD88
+palette = 3=#E0B567
+palette = 4=#91ADD0
+palette = 5=#B29ACB
+palette = 6=#83C0B6
+palette = 7=#DAD3C2
+palette = 8=#92928C
+palette = 9=#D47E78
+palette = 10=#A1BD88
+palette = 11=#E0B567
+palette = 12=#91ADD0
+palette = 13=#B29ACB
+palette = 14=#83C0B6
+palette = 15=#F2EADB

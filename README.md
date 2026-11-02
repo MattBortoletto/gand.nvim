@@ -45,4 +45,4 @@ vim.cmd.colorscheme("gand")
 
 ## 🍭 Extras 
 
-More coming!
+- [Ghostty theme](extras/ghostty/Gand)

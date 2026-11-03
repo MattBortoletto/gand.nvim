@@ -35,7 +35,7 @@ local semantic = {
   { "removedSignColor", c.red },
   { "lineNumberBg", c.bg },
   { "lineNumberFg", c.muted },
-  { "selectedHunk", c.select },
+  { "selectedHunk", blend(c.bg, c.gold, 0.5) },
   { "badgeAdded", c.green },
   { "badgeRemoved", c.red },
   { "badgeNeutral", c.muted },

@@ -48,3 +48,5 @@ vim.cmd.colorscheme("gand")
 - [Ghostty theme](extras/ghostty/gand)
 
 - [Hunk theme](extras/hunk/gand.toml)
+
+- [Slack theme](extras/slack/README.md)

@@ -49,6 +49,7 @@ Call `setup()` before loading the colorscheme. All options below show the defaul
 
 ```lua
 require("gand").setup({
+  variant = "dark", -- "dark" or "light"
   transparent = false,
   bold = true,
   italic = true,
@@ -62,6 +63,7 @@ require("gand").setup({
 vim.cmd.colorscheme("gand")
 ```
 
+- `variant`: choose the original dark palette or a light palette with warm parchment backgrounds and deeper gold, copper, and rune accents. Sets Neovim's `background` to match.
 - `transparent`: use the terminal background for editor windows and gutters. Popups, menus, selections, and status bars keep their backgrounds.
 - `bold` / `italic`: set either to `false` to disable that style throughout the theme, including plugin integrations. These switches take precedence over `styles`.
 - `dim_inactive`: mute ordinary text in inactive windows. Syntax colors stay the same.
@@ -72,9 +74,19 @@ For lazy.nvim, put the `setup()` call inside the plugin's `config` function,
 before `vim.cmd.colorscheme("gand")`. With LazyVim, add an `opts` table to
 the Gand plugin spec; LazyVim loads the colorscheme afterward.
 
+### Light variant
+
+```lua
+require("gand").setup({ variant = "light" })
+vim.cmd.colorscheme("gand")
+```
+
+Both variants support the same style controls, integrations, and `palette`
+overrides. To switch back, set `variant = "dark"` and reload the colorscheme.
+
 ## 🍭 Extras
 
-Matching themes for other tools, all generated from Gand's shared palette:
+Matching themes for other tools, all generated from Gand's dark palette:
 
 | Tool | Theme | Details |
 | --- | --- | --- |

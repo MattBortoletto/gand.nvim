@@ -1,6 +1,7 @@
 local M = {}
 
 local defaults = {
+  variant = "dark",
   palette = {},
   transparent = false,
   bold = true,
@@ -26,6 +27,9 @@ local config = vim.deepcopy(defaults)
 -- Call before :colorscheme gand. Setup only stores options; load applies them.
 function M.setup(opts)
   local next_config = vim.tbl_deep_extend("force", vim.deepcopy(defaults), opts or {})
+  if next_config.variant ~= "dark" and next_config.variant ~= "light" then
+    error("gand: variant must be 'dark' or 'light'")
+  end
   local style = next_config.diagnostics.style
   if style ~= "underline" and style ~= "background" and style ~= "text" then
     error("gand: diagnostics.style must be 'underline', 'background', or 'text'")
@@ -34,7 +38,7 @@ function M.setup(opts)
 end
 
 function M.load()
-  local c = require("gand.palette").get(config.palette)
+  local c = require("gand.palette").get(config.palette, config.variant)
   local groups = require("gand.highlights").get(c, config)
   for name in pairs(defaults.integrations) do
     if config.integrations[name] then
@@ -53,7 +57,7 @@ function M.load()
   end
 
   vim.o.termguicolors = true
-  vim.o.background = "dark"
+  vim.o.background = config.variant
   vim.cmd("highlight clear")
   if vim.fn.exists("syntax_on") == 1 then
     vim.cmd("syntax reset")

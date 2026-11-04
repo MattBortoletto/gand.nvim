@@ -43,10 +43,42 @@ Add this to your `init.lua`:
 vim.cmd.colorscheme("gand")
 ```
 
-## 🍭 Extras 
+## Configuration
 
-- [Ghostty theme](extras/ghostty/gand)
+Call `setup()` before loading the colorscheme. All options below show the defaults:
 
-- [Hunk theme](extras/hunk/gand.toml)
+```lua
+require("gand").setup({
+  transparent = false,
+  bold = true,
+  italic = true,
+  dim_inactive = false,
+  styles = {
+    comments = { italic = true },
+    keywords = {}, -- e.g. { bold = false }
+  },
+  diagnostics = { style = "underline" }, -- "underline", "background", or "text"
+})
+vim.cmd.colorscheme("gand")
+```
 
-- [Slack theme](extras/slack/README.md)
+- `transparent`: use the terminal background for editor windows and gutters. Popups, menus, selections, and status bars keep their backgrounds.
+- `bold` / `italic`: set either to `false` to disable that style throughout the theme, including plugin integrations. These switches take precedence over `styles`.
+- `dim_inactive`: mute ordinary text in inactive windows. Syntax colors stay the same.
+- `styles.comments` / `styles.keywords`: override highlight attributes for comments or keywords, for example `{ italic = false }` or `{ bold = false }`.
+- `diagnostics.style`: show diagnostic ranges with undercurls (the default), subtle tinted backgrounds, or colored text. Signs and diagnostic messages keep their severity colors. Neovim's diagnostic `underline` option must be enabled to display these range styles.
+
+For lazy.nvim, put the `setup()` call inside the plugin's `config` function,
+before `vim.cmd.colorscheme("gand")`. With LazyVim, add an `opts` table to
+the Gand plugin spec; LazyVim loads the colorscheme afterward.
+
+## 🍭 Extras
+
+Matching themes for other tools, all generated from Gand's shared palette:
+
+| Tool | Theme | Details |
+| --- | --- | --- |
+| Ghostty | [gand](extras/ghostty/gand) | [Setup](extras/ghostty/README.md) |
+| Hunk | [gand.toml](extras/hunk/gand.toml) | [Configuration](extras/hunk/README.md) |
+| Slack | [gand.txt](extras/slack/gand.txt) | [Import instructions](extras/slack/README.md) |
+| Claude Code | [gand.json](extras/claude/gand.json) | [Theme notes](extras/claude/README.md) |

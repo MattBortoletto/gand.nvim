@@ -1,11 +1,22 @@
 local M = {}
 
-function M.get(c)
+local function tint(color, background)
+  local channels = {}
+  for i = 1, 3 do
+    local start = 2 * i
+    local fg = tonumber(color:sub(start, start + 1), 16)
+    local bg = tonumber(background:sub(start, start + 1), 16)
+    channels[i] = math.floor(fg * 0.12 + bg * 0.88 + 0.5)
+  end
+  return string.format("#%02X%02X%02X", unpack(channels))
+end
+
+function M.get(c, config)
   local groups = {}
 
   -- Editor
   groups["Normal"] = { fg = c.fg, bg = c.bg }
-  groups["NormalNC"] = { fg = c.fg, bg = c.bg }
+  groups["NormalNC"] = { fg = config.dim_inactive and c.muted or c.fg, bg = c.bg }
   groups["NormalFloat"] = { fg = c.fg, bg = c.surface }
   groups["FloatBorder"] = { fg = c.copper, bg = c.surface }
   groups["FloatTitle"] = { fg = c.gold, bold = true }
@@ -87,6 +98,11 @@ function M.get(c)
   groups["@markup.heading"] = { fg = c.gold, bold = true }
   groups["@markup.link"] = { fg = c.rune, underline = true }
 
+  groups["Comment"] = vim.tbl_extend("force", groups["Comment"], config.styles.comments)
+  for _, name in ipairs({ "Keyword", "Statement", "Conditional", "Repeat", "@keyword.return", "@keyword.conditional", "@keyword.repeat" }) do
+    groups[name] = vim.tbl_extend("force", groups[name], config.styles.keywords)
+  end
+
   -- LSP semantic tokens
   groups["@lsp.type.function"] = { link = "Function" }
   groups["@lsp.type.method"] = { link = "Function" }
@@ -105,10 +121,14 @@ function M.get(c)
   }) do
     groups["Diagnostic" .. name] = { fg = color }
     groups["DiagnosticSign" .. name] = { fg = color }
-    groups["DiagnosticUnderline" .. name] = {
-      undercurl = true,
-      sp = color,
-    }
+    local style = config.diagnostics.style
+    if style == "underline" then
+      groups["DiagnosticUnderline" .. name] = { undercurl = true, sp = color }
+    elseif style == "background" then
+      groups["DiagnosticUnderline" .. name] = { bg = tint(color, c.bg) }
+    else
+      groups["DiagnosticUnderline" .. name] = { fg = color }
+    end
   end
 
   -- Diff
@@ -116,6 +136,12 @@ function M.get(c)
   groups["DiffChange"] = { bg = c.diff_change }
   groups["DiffDelete"] = { bg = c.diff_delete }
   groups["DiffText"] = { bg = c.diff_text }
+
+  if config.transparent then
+    for _, name in ipairs({ "Normal", "NormalNC", "SignColumn", "EndOfBuffer", "TabLineSel" }) do
+      groups[name].bg = nil
+    end
+  end
 
   return groups
 end

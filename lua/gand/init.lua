@@ -2,6 +2,15 @@ local M = {}
 
 local defaults = {
   palette = {},
+  transparent = false,
+  bold = true,
+  italic = true,
+  dim_inactive = false,
+  styles = {
+    comments = { italic = true },
+    keywords = {},
+  },
+  diagnostics = { style = "underline" },
   integrations = {
     snacks = true,
     blink = true,
@@ -16,15 +25,30 @@ local config = vim.deepcopy(defaults)
 
 -- Call before :colorscheme gand. Setup only stores options; load applies them.
 function M.setup(opts)
-  config = vim.tbl_deep_extend("force", vim.deepcopy(defaults), opts or {})
+  local next_config = vim.tbl_deep_extend("force", vim.deepcopy(defaults), opts or {})
+  local style = next_config.diagnostics.style
+  if style ~= "underline" and style ~= "background" and style ~= "text" then
+    error("gand: diagnostics.style must be 'underline', 'background', or 'text'")
+  end
+  config = next_config
 end
 
 function M.load()
   local c = require("gand.palette").get(config.palette)
-  local groups = require("gand.highlights").get(c)
+  local groups = require("gand.highlights").get(c, config)
   for name in pairs(defaults.integrations) do
     if config.integrations[name] then
       groups = vim.tbl_extend("force", groups, require("gand.integrations." .. name).get(c))
+    end
+  end
+
+  -- Global switches also cover plugin integrations and per-group styles.
+  for _, opts in pairs(groups) do
+    if not config.bold then
+      opts.bold = nil
+    end
+    if not config.italic then
+      opts.italic = nil
     end
   end
 

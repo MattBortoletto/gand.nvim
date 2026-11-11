@@ -58,7 +58,7 @@ function M.get(c, config)
   groups["Boolean"] = { fg = c.purple }
   groups["Float"] = { fg = c.purple }
   groups["Function"] = { fg = c.copper }
-  groups["Keyword"] = { fg = c.gold, bold = true }
+  groups["Keyword"] = { fg = c.gold }
   groups["Statement"] = { fg = c.gold }
   groups["Conditional"] = { fg = c.gold }
   groups["Repeat"] = { fg = c.gold }
@@ -82,7 +82,7 @@ function M.get(c, config)
   groups["@function.call"] = { link = "Function" }
   groups["@function.method"] = { link = "Function" }
   groups["@keyword"] = { link = "Keyword" }
-  groups["@keyword.return"] = { fg = c.gold, bold = true }
+  groups["@keyword.return"] = { fg = c.gold }
   groups["@keyword.conditional"] = { fg = c.gold }
   groups["@keyword.repeat"] = { fg = c.gold }
   groups["@type"] = { link = "Type" }

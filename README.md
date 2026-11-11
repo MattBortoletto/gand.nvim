@@ -56,7 +56,7 @@ require("gand").setup({
   dim_inactive = false,
   styles = {
     comments = { italic = true },
-    keywords = {}, -- e.g. { bold = false }
+    keywords = {}, -- e.g. { bold = true }
   },
   diagnostics = { style = "underline" }, -- "underline", "background", or "text"
 })
@@ -67,7 +67,7 @@ vim.cmd.colorscheme("gand")
 - `transparent`: use the terminal background for editor windows, gutters, floating windows, and pickers. Completion menus, selections, and status bars keep their backgrounds.
 - `bold` / `italic`: set either to `false` to disable that style throughout the theme, including plugin integrations. These switches take precedence over `styles`.
 - `dim_inactive`: mute ordinary text in inactive windows. Syntax colors stay the same.
-- `styles.comments` / `styles.keywords`: override highlight attributes for comments or keywords, for example `{ italic = false }` or `{ bold = false }`.
+- `styles.comments` / `styles.keywords`: override highlight attributes for comments or keywords, for example `{ italic = false }` or `{ bold = true }`. Keywords are not bold by default.
 - `diagnostics.style`: show diagnostic ranges with undercurls (the default), subtle tinted backgrounds, or colored text. Signs and diagnostic messages keep their severity colors. Neovim's diagnostic `underline` option must be enabled to display these range styles.
 
 For lazy.nvim, put the `setup()` call inside the plugin's `config` function,
@@ -86,7 +86,7 @@ overrides. To switch back, set `variant = "dark"` and reload the colorscheme.
 
 ## 🍭 Extras
 
-Matching themes for other tools, all generated from Gand's dark palette:
+Matching themes for other tools, generated from Gand's dark palette (VS Code also includes the light variant):
 
 | Tool | Theme | Details |
 | --- | --- | --- |
@@ -96,3 +96,4 @@ Matching themes for other tools, all generated from Gand's dark palette:
 | Herdr | [gand.json](extras/herdr/gand.json) | [Setup](extras/herdr/README.md) |
 | Slack | [gand.txt](extras/slack/gand.txt) | [Import instructions](extras/slack/README.md) |
 | Claude Code | [gand.json](extras/claude/gand.json) | [Theme notes](extras/claude/README.md) |
+| VS Code | [themes](extras/vscode/themes) | [Installation](extras/vscode/README.md) |

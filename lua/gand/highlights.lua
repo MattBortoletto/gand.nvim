@@ -138,7 +138,7 @@ function M.get(c, config)
   groups["DiffText"] = { bg = c.diff_text }
 
   if config.transparent then
-    for _, name in ipairs({ "Normal", "NormalNC", "SignColumn", "EndOfBuffer", "TabLineSel" }) do
+    for _, name in ipairs({ "Normal", "NormalNC", "NormalFloat", "FloatBorder", "SignColumn", "EndOfBuffer", "TabLineSel" }) do
       groups[name].bg = nil
     end
   end

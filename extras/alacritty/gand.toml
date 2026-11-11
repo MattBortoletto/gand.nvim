@@ -1,0 +1,39 @@
+# Gand — a dwarven-inspired dark theme for Alacritty
+# Generated from lua/gand/palette.lua; do not edit by hand.
+# Regenerate: nvim --headless -u NONE -i NONE -l scripts/generate-alacritty.lua
+
+[colors.primary]
+background = "#191C20"
+foreground = "#DAD3C2"
+dim_foreground = "#92928C"
+bright_foreground = "#F2EADB"
+
+[colors.cursor]
+text = "#191C20"
+cursor = "#E0B567"
+
+[colors.selection]
+text = "#DAD3C2"
+background = "#343D42"
+
+# ANSI blue and bright blue use Runestone, including default macOS ls directories.
+[colors.normal]
+black = "#191C20"
+red = "#D47E78"
+green = "#A1BD88"
+yellow = "#E0B567"
+blue = "#83C0B6"
+magenta = "#B29ACB"
+cyan = "#83C0B6"
+white = "#DAD3C2"
+
+[colors.bright]
+black = "#92928C"
+red = "#D47E78"
+green = "#A1BD88"
+yellow = "#E0B567"
+blue = "#83C0B6"
+magenta = "#B29ACB"
+cyan = "#83C0B6"
+white = "#F2EADB"
+

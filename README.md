@@ -64,7 +64,7 @@ vim.cmd.colorscheme("gand")
 ```
 
 - `variant`: choose the original dark palette or a light palette with warm parchment backgrounds and deeper gold, copper, and rune accents. Sets Neovim's `background` to match.
-- `transparent`: use the terminal background for editor windows and gutters. Popups, menus, selections, and status bars keep their backgrounds.
+- `transparent`: use the terminal background for editor windows, gutters, floating windows, and pickers. Completion menus, selections, and status bars keep their backgrounds.
 - `bold` / `italic`: set either to `false` to disable that style throughout the theme, including plugin integrations. These switches take precedence over `styles`.
 - `dim_inactive`: mute ordinary text in inactive windows. Syntax colors stay the same.
 - `styles.comments` / `styles.keywords`: override highlight attributes for comments or keywords, for example `{ italic = false }` or `{ bold = false }`.
@@ -90,7 +90,9 @@ Matching themes for other tools, all generated from Gand's dark palette:
 
 | Tool | Theme | Details |
 | --- | --- | --- |
+| Alacritty | [gand.toml](extras/alacritty/gand.toml) | [Setup](extras/alacritty/README.md) |
 | Ghostty | [gand](extras/ghostty/gand) | [Setup](extras/ghostty/README.md) |
 | Hunk | [gand.toml](extras/hunk/gand.toml) | [Configuration](extras/hunk/README.md) |
+| Herdr | [gand.json](extras/herdr/gand.json) | [Setup](extras/herdr/README.md) |
 | Slack | [gand.txt](extras/slack/gand.txt) | [Import instructions](extras/slack/README.md) |
 | Claude Code | [gand.json](extras/claude/gand.json) | [Theme notes](extras/claude/README.md) |

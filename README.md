@@ -93,8 +93,7 @@ Matching themes for other tools, generated from Gand's dark palette (VS Code als
 | Alacritty | [gand.toml](extras/alacritty/gand.toml) | [Setup](extras/alacritty/README.md) |
 | Ghostty | [gand](extras/ghostty/gand) | [Setup](extras/ghostty/README.md) |
 | iTerm2 | [gand.itermcolors](extras/iterm2/gand.itermcolors) | [Setup](extras/iterm2/README.md) |
-| Hunk | [gand.toml](extras/hunk/gand.toml) | [Configuration](extras/hunk/README.md) |
+| Kitty | [gand.conf](extras/kitty/gand.conf) | [Setup](extras/kitty/README.md) |
 | Herdr | [gand.json](extras/herdr/gand.json) | [Setup](extras/herdr/README.md) |
 | Slack | [gand.txt](extras/slack/gand.txt) | [Import instructions](extras/slack/README.md) |
-| Claude Code | [gand.json](extras/claude/gand.json) | [Theme notes](extras/claude/README.md) |
 | VS Code | [themes](extras/vscode/themes) | [Installation](extras/vscode/README.md) |
